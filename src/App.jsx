@@ -136,13 +136,13 @@ export default function EBastoTechSite() {
         </div>
       </motion.nav>
 
-      <section className="relative flex min-h-screen items-center pt-20">
+      <section className="relative flex min-h-screen items-start pt-20 sm:items-center">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_20%,rgba(37,99,235,0.35),transparent_35%),radial-gradient(circle_at_20%_40%,rgba(14,165,233,0.18),transparent_30%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0ea5e9_1px,transparent_1px),linear-gradient(to_bottom,#0ea5e9_1px,transparent_1px)] bg-[size:64px_64px] opacity-20" />
 
-        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-5 py-16 sm:px-6 sm:py-20 lg:grid-cols-2">
+        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-8 px-4 py-10 sm:px-6 sm:py-16 lg:grid-cols-2 lg:py-20">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-sm text-blue-200">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-3 py-1.5 text-xs text-blue-200 sm:mb-6 sm:px-4 sm:py-2 sm:text-sm">
               <span className="h-2 w-2 animate-pulse rounded-full bg-blue-400" />
               Mondim de Basto
             </div>
@@ -151,23 +151,23 @@ export default function EBastoTechSite() {
               <img
                 src={logoImage}
                 alt="EBasto Tech Logo"
-                className="h-16 w-auto mix-blend-screen drop-shadow-[0_0_25px_rgba(59,130,246,0.45)] sm:h-20 md:h-24"
+                className="h-12 w-auto mix-blend-screen drop-shadow-[0_0_25px_rgba(59,130,246,0.45)] sm:h-20 md:h-24"
               />
 
-              <h1 className="text-4xl font-black leading-tight tracking-tight sm:text-5xl md:text-6xl">
+              <h1 className="text-3xl font-black leading-tight tracking-tight sm:text-5xl md:text-6xl">
                 EBasto <span className="text-blue-400">Tech</span>
               </h1>
             </div>
 
-            <p className="mt-5 max-w-lg text-base leading-relaxed text-slate-300 sm:text-xl md:text-2xl">
+            <p className="mt-4 max-w-lg text-sm leading-relaxed text-slate-300 sm:text-xl md:text-2xl">
               Limpeza, manutenção e otimização de PCs com cuidado, confiança e desempenho.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a className="rounded-2xl bg-blue-500 px-6 py-3 font-bold shadow-lg shadow-blue-500/25 transition hover:bg-blue-400" href="mailto:ebastotech@gmail.com">
+            <div className="mt-6 flex flex-wrap gap-3 sm:mt-8">
+              <a className="rounded-2xl bg-blue-500 px-4 py-2.5 text-sm font-bold shadow-lg shadow-blue-500/25 transition hover:bg-blue-400 sm:px-6 sm:py-3 sm:text-base" href="mailto:ebastotech@gmail.com">
                 Vamos melhorar o teu setup
               </a>
-              <a className="rounded-2xl border border-white/15 px-6 py-3 font-bold transition hover:bg-white/10" href="#servicos">
+              <a className="rounded-2xl border border-white/15 px-4 py-2.5 text-sm font-bold transition hover:bg-white/10 sm:px-6 sm:py-3 sm:text-base" href="#servicos">
                 Ver serviços
               </a>
             </div>
@@ -199,8 +199,8 @@ export default function EBastoTechSite() {
           <motion.div initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.15 }} className="relative">
             <div className="absolute -inset-6 rounded-[2rem] bg-blue-500/20 blur-3xl" />
 
-            <div className="relative rounded-[2rem] border border-blue-300/20 bg-slate-950/80 p-6 shadow-2xl shadow-blue-950/40">
-              <div className="relative flex aspect-video items-end overflow-hidden rounded-3xl border border-white/10 bg-black">
+            <div className="relative rounded-[2rem] border border-blue-300/20 bg-slate-950/80 p-3 shadow-2xl shadow-blue-950/40 sm:p-6">
+              <div className="relative flex aspect-[4/3] items-end overflow-hidden rounded-3xl border border-white/10 bg-black sm:aspect-video">
                 <img src={setupImage} alt="Setup pessoal EBasto Tech" className="absolute inset-0 h-full w-full object-cover opacity-80" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-blue-950/20" />
 
@@ -214,7 +214,7 @@ export default function EBastoTechSite() {
                     />
                   </div>
 
-                  <h3 className="text-3xl font-black tracking-wide">PERFORMANCE • QUALIDADE</h3>
+                  <h3 className="text-xl font-black tracking-wide sm:text-3xl">PERFORMANCE • QUALIDADE</h3>
                 </div>
               </div>
             </div>
