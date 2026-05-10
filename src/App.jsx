@@ -1,341 +1,612 @@
-export default function App() {
-  const setupImage = "https://i.imgur.com/bYQjvAD.jpeg";
-  const logoImage = "https://i.imgur.com/u8kaoEP.png";
-  const fullLogoImage = "https://i.imgur.com/okzWK8Q.png";
+import React, { useEffect } from "react";
+import { motion } from "framer-motion";
 
+export default function EBastoTechSite() {
+  useEffect(() => {
+    document.title = "EBasto Tech | Limpeza, Formatação e Otimização de PCs em Mondim de Basto";
+    const description = "EBasto Tech em Mondim de Basto: limpeza de PCs, formatação, otimização, pasta térmica e manutenção preventiva.";
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.setAttribute("name", "description");
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute("content", description);
+  }, []);
   const services = [
     {
-      icon: "🧹",
-      title: "Limpeza completa",
-      price: "35€",
-      text: "Remoção de pó, limpeza interna e verificação geral do equipamento.",
+      icon: "💻",
+      title: "Limpeza & Otimização",
+      text: "Remoção de pó, verificação geral e otimização para melhor desempenho.",
     },
     {
       icon: "🌡️",
-      title: "Pasta térmica + manutenção preventiva",
-      price: "35€",
+      title: "Pasta térmica & Manutenção preventiva",
       text: "Aplicação de pasta térmica, limpeza interna e verificação básica para melhores temperaturas e estabilidade.",
     },
     {
-      icon: "💻",
-      title: "Formatação simples",
-      price: "25€",
-      text: "Instalação de Windows, drivers, updates e preparação básica do sistema.",
+      icon: "🛠️",
+      title: "Formatação & Otimização",
+      text: "Sistema mais limpo, rápido e estável para uso diário ou gaming.",
     },
-    {
-      icon: "⚡",
-      title: "Formatação + otimização",
-      price: "35€",
-      text: "Sistema otimizado com programas essenciais e melhor desempenho diário.",
-    },
-  ];
-
-  const steps = [
-    ["01", "Mensagem", "Envia mensagem com o problema ou serviço pretendido."],
-    ["02", "Análise", "Vejo o estado do equipamento e explico o que faz sentido fazer."],
-    ["03", "Confirmação", "Tudo é explicado antes do serviço para não existirem surpresas."],
-    ["04", "Serviço", "Serviço feito com cuidado, testes e atenção ao detalhe."],
   ];
 
   const values = [
-    ["🛡️", "Confiança", "Trabalho feito com cuidado e respeito pelo equipamento."],
-    ["⚡", "Desempenho", "Foco em estabilidade, temperaturas e performance."],
-    ["💬", "Transparência", "Tudo explicado antes de qualquer serviço."],
-    ["🎮", "Gaming & Tech", "Projeto criado por paixão real por tecnologia."],
+    { icon: "🛡️", label: "Confiança" },
+    { icon: "⚡", label: "Desempenho" },
+    { icon: "🧠", label: "Cuidado técnico" },
+  ];
+
+  const setupImage = "https://i.imgur.com/bYQjvAD.jpeg";
+  const logoImage = "https://i.imgur.com/u8kaoEP.png";
+
+  const galleryItems = [
+    {
+      title: "Setup pessoal EBasto Tech",
+      label: "Projeto real",
+      image: setupImage,
+    },
+    {
+      title: "Identidade EBasto Tech",
+      label: "Marca",
+      image: logoImage,
+    },
+  ];
+
+  const socials = [
+    {
+      name: "Instagram",
+      icon: "📸",
+      url: "https://www.instagram.com/ebastotech/",
+    },
+    {
+      name: "Facebook",
+      icon: "📘",
+      url: "https://www.facebook.com/profile.php?id=61589279948684&locale=pt_PT",
+    },
+    {
+      name: "TikTok em breve",
+      icon: "🎵",
+      url: "#contactos",
+    },
   ];
 
   const shopBuilds = [
-    ["EBasto Starter", "desde 499€", "Gaming acessível", "PC otimizado, SSD rápido, bom airflow e pronto a usar."],
-    ["EBasto Performance", "desde 599€", "Melhor custo/benefício", "Build equilibrada para jogos, trabalho e uso diário."],
-    ["EBasto Custom", "sob orçamento", "À medida", "Escolha de peças, montagem cuidada e otimização conforme objetivo."],
+    {
+      name: "EBasto Starter",
+      price: "desde 499€",
+      tag: "Gaming acessível",
+      specs: ["PC otimizado", "SSD rápido", "Bom airflow", "Pronto a usar"],
+      note: "Ideal para quem quer começar a jogar sem gastar uma fortuna.",
+    },
+    {
+      name: "EBasto Performance",
+      price: "desde 599€",
+      tag: "Melhor custo/benefício",
+      specs: ["Build equilibrada", "Gráfica dedicada", "Windows otimizado", "Testes básicos incluídos"],
+      note: "Pensado para boa performance em jogos e uso diário.",
+    },
+    {
+      name: "EBasto Custom",
+      price: "sob orçamento",
+      tag: "À medida",
+      specs: ["Escolha de peças", "Montagem cuidada", "Limpeza visual", "Ajustado ao teu objetivo"],
+      note: "Para quem quer algo mais personalizado conforme orçamento.",
+    },
   ];
-
-  const faq = [
-    ["Quanto custa uma limpeza completa?", "A limpeza completa tem um valor base de 35€, com limpeza interna e verificação geral."],
-    ["Fazes formatações?", "Sim. Formatação simples ou formatação com otimização e programas essenciais."],
-    ["Trabalhas com portáteis?", "Sim, mediante análise. Cada portátil pode ter acessos e desmontagem diferentes."],
-    ["Onde estás localizado?", "Mondim de Basto. Para já, o contacto é feito por mensagem privada ou email."],
-  ];
-
-  const container = {
-    width: "min(1200px, calc(100% - 40px))",
-    margin: "0 auto",
-  };
-
-  const card = {
-    border: "1px solid rgba(255,255,255,0.10)",
-    background: "linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.035))",
-    borderRadius: "28px",
-    padding: "28px",
-    boxShadow: "0 20px 60px rgba(0,0,0,0.28)",
-  };
-
-  const title = {
-    color: "#ffffff",
-    margin: "10px 0 12px",
-    fontSize: "clamp(34px, 5vw, 54px)",
-    fontWeight: 900,
-    lineHeight: 1.05,
-  };
-
-  const subtitle = {
-    color: "#e2e8f0",
-    fontSize: 18,
-    lineHeight: 1.6,
-  };
-
-  const blueButton = {
-    background: "linear-gradient(135deg, #2563eb, #38bdf8)",
-    color: "white",
-    padding: "14px 20px",
-    borderRadius: 16,
-    fontWeight: 900,
-    textDecoration: "none",
-    boxShadow: "0 14px 38px rgba(37,99,235,0.35)",
-    display: "inline-block",
-  };
-
-  const ghostButton = {
-    border: "1px solid rgba(255,255,255,0.16)",
-    color: "white",
-    padding: "14px 20px",
-    borderRadius: 16,
-    fontWeight: 800,
-    textDecoration: "none",
-    display: "inline-block",
-    background: "rgba(255,255,255,0.04)",
-  };
 
   return (
-    <div style={{ minHeight: "100vh", background: "#030712", color: "white", fontFamily: "Arial, sans-serif", overflowX: "hidden" }}>
-      <style>{`
-        html { scroll-behavior: smooth; }
-        body { margin: 0; background: #030712; color: white; }
-        * { box-sizing: border-box; }
-        a { transition: 0.25s ease; }
-        a:hover { filter: brightness(1.18); transform: translateY(-1px); }
-        .lift { transition: 0.25s ease; }
-        .lift:hover { transform: translateY(-6px); border-color: rgba(96,165,250,0.45) !important; }
-        @media (max-width: 760px) {
-          .desktopNav { display: none !important; }
-          .heroGrid { grid-template-columns: 1fr !important; }
-          .heroTitle { font-size: 44px !important; }
-          .setupBadgeTitle { font-size: 22px !important; }
-        }
-      `}</style>
-
-      <div
-        style={{
-          position: "fixed",
-          inset: 0,
-          pointerEvents: "none",
-          background:
-            "radial-gradient(circle at 78% 18%, rgba(37,99,235,0.38), transparent 34%), radial-gradient(circle at 18% 35%, rgba(14,165,233,0.22), transparent 30%), linear-gradient(to bottom, #030712, #020617 45%, #000000)",
-        }}
-      />
-      <div
-        style={{
-          position: "fixed",
-          inset: 0,
-          pointerEvents: "none",
-          opacity: 0.17,
-          backgroundImage:
-            "linear-gradient(to right, #0ea5e9 1px, transparent 1px), linear-gradient(to bottom, #0ea5e9 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-        }}
-      />
-
-      <header style={{ position: "sticky", top: 0, zIndex: 20, borderBottom: "1px solid rgba(255,255,255,0.10)", background: "rgba(3,7,18,0.82)", backdropFilter: "blur(14px)" }}>
-        <div style={{ ...container, padding: "16px 0", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <img src={logoImage} alt="EBasto Tech" style={{ height: 42, filter: "drop-shadow(0 0 18px rgba(59,130,246,0.45))" }} />
-            <strong style={{ color: "white", fontSize: 20, letterSpacing: 0.3 }}>EBasto <span style={{ color: "#60a5fa" }}>Tech</span></strong>
-          </div>
-          <nav className="desktopNav" style={{ display: "flex", gap: 18, flexWrap: "wrap", fontSize: 14 }}>
-            <a href="#servicos" style={{ color: "#e2e8f0", textDecoration: "none" }}>Serviços</a>
-            <a href="#precos" style={{ color: "#e2e8f0", textDecoration: "none" }}>Preços</a>
-            <a href="#loja" style={{ color: "#e2e8f0", textDecoration: "none" }}>Loja</a>
-            <a href="#contactos" style={{ color: "#e2e8f0", textDecoration: "none" }}>Contactos</a>
-          </nav>
+    <main className="min-h-screen overflow-hidden bg-[#030712] text-white scroll-smooth">
+      <motion.div
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 0 }}
+        transition={{ duration: 1.2, delay: 0.8 }}
+        className="pointer-events-none fixed inset-0 z-[999] flex items-center justify-center bg-[#030712]"
+      >
+        <div className="text-center">
+          <img
+            src={logoImage}
+            alt="EBasto Tech"
+            className="mx-auto h-28 w-auto animate-pulse mix-blend-screen drop-shadow-[0_0_35px_rgba(59,130,246,0.55)]"
+          />
+          <p className="mt-4 text-lg font-bold tracking-[0.3em] text-blue-300">EBASTO TECH</p>
         </div>
-      </header>
+      </motion.div>
 
-      <main style={{ position: "relative", zIndex: 1 }}>
-        <section style={{ padding: "90px 0 70px" }}>
-          <div className="heroGrid" style={{ ...container, display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 60, alignItems: "center" }}>
-            <div>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, border: "1px solid rgba(96,165,250,0.35)", background: "rgba(59,130,246,0.12)", color: "#bfdbfe", padding: "9px 14px", borderRadius: 999, fontSize: 14, marginBottom: 24 }}>
-                <span style={{ width: 8, height: 8, borderRadius: 999, background: "#60a5fa", boxShadow: "0 0 14px #60a5fa" }} /> Mondim de Basto
-              </div>
+      <motion.nav
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#030712]/80 backdrop-blur-xl"
+      >
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <div className="flex items-center gap-3">
+            <img src={logoImage} alt="EBasto Tech" className="h-10 w-auto mix-blend-screen" />
+            <span className="text-lg font-black tracking-wide">
+              EBasto <span className="text-blue-400">Tech</span>
+            </span>
+          </div>
 
-              <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 24, flexWrap: "wrap" }}>
-                <img src={logoImage} alt="EBasto Tech" style={{ height: 92, filter: "drop-shadow(0 0 24px rgba(59,130,246,0.45))" }} />
-                <h1 className="heroTitle" style={{ color: "white", margin: 0, fontSize: "clamp(50px, 7vw, 76px)", lineHeight: 0.95, fontWeight: 900 }}>
-                  EBasto <span style={{ color: "#60a5fa" }}>Tech</span>
-                </h1>
-              </div>
+          <div className="hidden items-center gap-6 md:flex">
+            <a href="#servicos" className="text-sm font-semibold text-slate-300 transition hover:text-blue-400">Serviços</a>
+            <a href="#processo" className="text-sm font-semibold text-slate-300 transition hover:text-blue-400">Como funciona</a>
+            <a href="#loja" className="text-sm font-semibold text-slate-300 transition hover:text-blue-400">Loja</a>
+            <a href="#contactos" className="text-sm font-semibold text-slate-300 transition hover:text-blue-400">Contactos</a>
+          </div>
+        </div>
+      </motion.nav>
 
-              <p style={{ color: "#f8fafc", fontSize: 22, lineHeight: 1.45, maxWidth: 620, margin: "0 0 28px" }}>
-                Limpeza, manutenção e otimização de PCs com cuidado, confiança e desempenho.
-              </p>
+      <section className="relative flex min-h-screen items-center pt-20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_20%,rgba(37,99,235,0.35),transparent_35%),radial-gradient(circle_at_20%_40%,rgba(14,165,233,0.18),transparent_30%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0ea5e9_1px,transparent_1px),linear-gradient(to_bottom,#0ea5e9_1px,transparent_1px)] bg-[size:64px_64px] opacity-20" />
 
-              <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 30 }}>
-                <a href="mailto:ebastotech@gmail.com" style={blueButton}>Vamos melhorar o teu setup</a>
-                <a href="#servicos" style={ghostButton}>Ver serviços</a>
-              </div>
-
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(145px, 1fr))", gap: 12, maxWidth: 560 }}>
-                <div style={{ ...card, color: "white", padding: 16, borderRadius: 18 }}>🛡️ Confiança</div>
-                <div style={{ ...card, color: "white", padding: 16, borderRadius: 18 }}>⚡ Desempenho</div>
-                <div style={{ ...card, color: "white", padding: 16, borderRadius: 18 }}>🧠 Cuidado técnico</div>
-              </div>
+        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-2">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-sm text-blue-200">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-blue-400" />
+              Mondim de Basto
             </div>
 
-            <div style={{ position: "relative" }}>
-              <div style={{ position: "absolute", inset: -20, borderRadius: 36, background: "rgba(59,130,246,0.20)", filter: "blur(40px)" }} />
-              <div style={{ position: "relative", ...card, padding: 22 }}>
-                <div style={{ position: "relative", overflow: "hidden", borderRadius: 24, border: "1px solid rgba(255,255,255,0.10)", background: "black" }}>
-                  <img src={setupImage} alt="Setup pessoal EBasto Tech" style={{ width: "100%", display: "block", opacity: 0.84 }} />
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.84), rgba(0,0,0,0.10), rgba(30,64,175,0.18))" }} />
-                  <div style={{ position: "absolute", left: 24, right: 24, bottom: 24 }}>
-                    <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "7px 12px", borderRadius: 999, border: "1px solid rgba(96,165,250,0.25)", background: "rgba(0,0,0,0.42)", color: "#bfdbfe", fontSize: 12, marginBottom: 12 }}>
-                      <span>💙 Setup pessoal da EBasto Tech</span>
-                      <img src={logoImage} alt="EBasto Tech" style={{ height: 16 }} />
-                    </div>
-                    <h2 className="setupBadgeTitle" style={{ color: "white", margin: 0, fontSize: 32, fontWeight: 900 }}>PERFORMANCE • QUALIDADE</h2>
+            <div className="mb-6 flex items-center gap-5">
+              <img
+                src={logoImage}
+                alt="EBasto Tech Logo"
+                className="h-24 w-auto mix-blend-screen drop-shadow-[0_0_25px_rgba(59,130,246,0.45)]"
+              />
+
+              <h1 className="text-5xl font-black leading-none tracking-tight md:text-6xl">
+                EBasto <span className="text-blue-400">Tech</span>
+              </h1>
+            </div>
+
+            <p className="mt-6 max-w-xl text-2xl text-slate-300">
+              Limpeza, manutenção e otimização de PCs com cuidado, confiança e desempenho.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a className="rounded-2xl bg-blue-500 px-6 py-3 font-bold shadow-lg shadow-blue-500/25 transition hover:bg-blue-400" href="mailto:ebastotech@gmail.com">
+                Vamos melhorar o teu setup
+              </a>
+              <a className="rounded-2xl border border-white/15 px-6 py-3 font-bold transition hover:bg-white/10" href="#servicos">
+                Ver serviços
+              </a>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-4">
+              {socials.map((social) => (
+                <motion.a
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  key={social.name}
+                  href={social.url}
+                  className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-slate-200 transition hover:border-blue-400/40 hover:bg-blue-500/10"
+                >
+                  <span className="text-lg">{social.icon}</span>
+                  {social.name}
+                </motion.a>
+              ))}
+            </div>
+
+            <div className="mt-10 grid max-w-xl gap-3 sm:grid-cols-3">
+              {values.map((item) => (
+                <div key={item.label} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 text-slate-200">
+                  <span className="text-xl">{item.icon}</span>
+                  {item.label}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.15 }} className="relative">
+            <div className="absolute -inset-6 rounded-[2rem] bg-blue-500/20 blur-3xl" />
+
+            <div className="relative rounded-[2rem] border border-blue-300/20 bg-slate-950/80 p-6 shadow-2xl shadow-blue-950/40">
+              <div className="relative flex aspect-video items-end overflow-hidden rounded-3xl border border-white/10 bg-black">
+                <img src={setupImage} alt="Setup pessoal EBasto Tech" className="absolute inset-0 h-full w-full object-cover opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-blue-950/20" />
+
+                <div className="relative z-10 flex h-full flex-col justify-end p-6">
+                  <div className="mb-3 inline-flex w-fit items-center gap-2 rounded-full border border-blue-400/20 bg-black/30 px-3 py-1 text-xs text-blue-200 backdrop-blur-md">
+                    <span>💙 Setup pessoal da EBasto Tech</span>
+                    <img
+                      src={logoImage}
+                      alt="EBasto Tech"
+                      className="h-4 w-auto opacity-90 mix-blend-screen drop-shadow-[0_0_8px_rgba(59,130,246,0.35)]"
+                    />
+                  </div>
+
+                  <h3 className="text-3xl font-black tracking-wide">PERFORMANCE • QUALIDADE</h3>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section id="servicos" className="relative border-t border-white/10 px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 max-w-2xl">
+            <p className="font-bold uppercase tracking-widest text-blue-400">Serviços</p>
+            <h2 className="mt-3 text-4xl font-black md:text-5xl">O essencial para deixar o PC melhor.</h2>
+            <p className="mt-4 text-lg text-slate-400">Começamos simples, bem feito e com foco na confiança.</p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {services.map((service) => (
+              <motion.div key={service.title} whileHover={{ y: -6 }} className="rounded-3xl border border-white/10 bg-white/[0.04] p-7 shadow-xl transition hover:border-blue-400/40">
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/15 text-3xl">{service.icon}</div>
+                <h3 className="text-2xl font-black">{service.title}</h3>
+                <p className="mt-3 leading-relaxed text-slate-400">{service.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-white/10 px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 max-w-3xl">
+            <p className="font-bold uppercase tracking-widest text-blue-400">Valores base</p>
+            <h2 className="mt-3 text-4xl font-black md:text-5xl">Preços simples para começar.</h2>
+            <p className="mt-4 text-lg text-slate-400">
+              Preços base transparentes para começar, sempre explicados antes de qualquer serviço.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              { name: "Limpeza completa", price: "35€", desc: "Remoção de pó, limpeza interna e verificação geral do equipamento." },
+              { name: "Formatação simples", price: "25€", desc: "Windows, drivers, updates e preparação básica do sistema." },
+              { name: "Formatação + otimização", price: "35€", desc: "Sistema mais limpo, rápido e estável para uso diário ou gaming." },
+              { name: "Pasta térmica + manutenção preventiva", price: "35€", desc: "Pasta térmica, limpeza interna e verificação básica de temperaturas." },
+            ].map((item) => (
+              <motion.div
+                key={item.name}
+                whileHover={{ y: -6 }}
+                className="rounded-3xl border border-white/10 bg-gradient-to-b from-blue-500/10 to-white/[0.03] p-7 transition hover:border-blue-400/40"
+              >
+                <h3 className="text-2xl font-black">{item.name}</h3>
+                <p className="mt-4 text-4xl font-black text-blue-400">{item.price}</p>
+                <p className="mt-4 leading-relaxed text-slate-400">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="galeria" className="border-t border-white/10 px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 max-w-3xl">
+            <p className="font-bold uppercase tracking-widest text-blue-400">Galeria inicial</p>
+            <h2 className="mt-3 text-4xl font-black md:text-5xl">A identidade visual da EBasto Tech.</h2>
+            <p className="mt-4 text-lg text-slate-400">
+              Para já, começa com o setup pessoal e a imagem da marca. Mais tarde entram trabalhos reais, antes/depois e manutenções.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {galleryItems.map((item) => (
+              <motion.div
+                key={item.title}
+                whileHover={{ y: -6, scale: 1.01 }}
+                className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] shadow-xl transition hover:border-blue-400/40"
+              >
+                <div className="relative aspect-video overflow-hidden bg-black">
+                  <img src={item.image} alt={item.title} className="h-full w-full object-cover opacity-85 transition duration-500 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute bottom-5 left-5 right-5">
+                    <span className="rounded-full border border-blue-400/20 bg-blue-500/20 px-3 py-1 text-xs font-bold text-blue-200 backdrop-blur-md">
+                      {item.label}
+                    </span>
+                    <h3 className="mt-3 text-2xl font-black">{item.title}</h3>
                   </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section id="servicos" style={{ padding: "70px 0", borderTop: "1px solid rgba(255,255,255,0.10)" }}>
-          <div style={container}>
-            <p style={{ color: "#60a5fa", fontWeight: 800, letterSpacing: 2, textTransform: "uppercase" }}>Serviços</p>
-            <h2 style={title}>O essencial para deixar o PC melhor.</h2>
-            <p style={{ ...subtitle, marginBottom: 34 }}>Começamos simples, bem feito e com foco na confiança.</p>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 22 }}>
-              {services.map((service) => (
-                <div className="lift" key={service.title} style={card}>
-                  <div style={{ fontSize: 36, marginBottom: 16 }}>{service.icon}</div>
-                  <h3 style={{ color: "white", margin: "0 0 12px", fontSize: 24 }}>{service.title}</h3>
-                  <div style={{ color: "#60a5fa", fontSize: 34, fontWeight: 900, marginBottom: 14 }}>{service.price}</div>
-                  <p style={{ color: "#f8fafc", lineHeight: 1.55, margin: 0 }}>{service.text}</p>
+      <section id="processo" className="border-t border-white/10 px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 max-w-3xl">
+            <p className="font-bold uppercase tracking-widest text-blue-400">Como funciona?</p>
+            <h2 className="mt-3 text-4xl font-black md:text-5xl">Processo simples, direto e transparente.</h2>
+            <p className="mt-4 text-lg text-slate-400">
+              Uma forma simples e transparente de perceber como funciona o serviço.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-4">
+            {[
+              { step: "01", title: "Mensagem", text: "Envia mensagem com o problema ou serviço pretendido." },
+              { step: "02", title: "Análise", text: "Vejo o estado do equipamento e explico o que faz sentido fazer." },
+              { step: "03", title: "Confirmação", text: "Tudo é explicado antes do serviço para não existirem surpresas." },
+              { step: "04", title: "Serviço", text: "Manutenção feita com cuidado, testes e atenção ao detalhe." },
+            ].map((item) => (
+              <motion.div key={item.step} whileHover={{ y: -6 }} className="group rounded-3xl border border-white/10 bg-white/[0.04] p-6 transition hover:border-blue-400/40 hover:bg-blue-500/10">
+                <div className="mb-5 text-4xl font-black text-blue-400/70 group-hover:text-blue-300">{item.step}</div>
+                <h3 className="text-xl font-black">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-400">{item.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="loja" className="border-t border-white/10 px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 max-w-3xl">
+            <p className="font-bold uppercase tracking-widest text-blue-400">Loja / PCs EBasto Tech</p>
+            <h2 className="mt-3 text-4xl font-black md:text-5xl">PCs acessíveis, bem montados e otimizados.</h2>
+            <p className="mt-4 text-lg text-slate-400">
+              Ideia futura: montar PCs com bom custo/benefício para quem quer jogar, trabalhar ou estudar sem gastar valores absurdos.
+            </p>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            {shopBuilds.map((build) => (
+              <motion.div key={build.name} whileHover={{ y: -6 }} className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.07] to-white/[0.03] p-7 shadow-xl transition hover:border-blue-400/40">
+                <div className="mb-5 flex items-center justify-between gap-3">
+                  <span className="rounded-full border border-blue-400/20 bg-blue-500/15 px-3 py-1 text-sm font-bold text-blue-200">{build.tag}</span>
+                  <span className="text-2xl">🖥️</span>
                 </div>
-              ))}
-            </div>
+                <h3 className="text-2xl font-black">{build.name}</h3>
+                <p className="mt-2 text-3xl font-black text-blue-400">{build.price}</p>
+                <p className="mt-4 leading-relaxed text-slate-400">{build.note}</p>
+                <ul className="mt-6 space-y-3">
+                  {build.specs.map((spec) => (
+                    <li key={spec} className="flex items-center gap-3 text-slate-200">
+                      <span className="h-2 w-2 rounded-full bg-blue-400" />
+                      {spec}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
           </div>
-        </section>
 
-        <section id="processo" style={{ padding: "70px 0", borderTop: "1px solid rgba(255,255,255,0.10)" }}>
-          <div style={container}>
-            <p style={{ color: "#60a5fa", fontWeight: 800, letterSpacing: 2, textTransform: "uppercase" }}>Como funciona?</p>
-            <h2 style={title}>Processo simples, direto e transparente.</h2>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 20, marginTop: 34 }}>
-              {steps.map((step) => (
-                <div className="lift" key={step[0]} style={card}>
-                  <div style={{ color: "#60a5fa", fontWeight: 900, fontSize: 36, marginBottom: 14 }}>{step[0]}</div>
-                  <h3 style={{ color: "white", margin: "0 0 10px", fontSize: 22 }}>{step[1]}</h3>
-                  <p style={{ color: "#f8fafc", lineHeight: 1.55, margin: 0 }}>{step[2]}</p>
+          <div className="mt-8 rounded-3xl border border-blue-400/20 bg-blue-500/10 p-6 text-slate-300">
+            <strong className="text-white">Nota:</strong> Esta secção pode começar apenas como conceito/portfolio e evoluir para loja quando houver stock, peças e número profissional.
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-white/10 px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 text-center">
+            <p className="font-bold uppercase tracking-widest text-blue-400">O que define a EBasto Tech</p>
+            <h2 className="mt-3 text-4xl font-black md:text-5xl">
+              Simples, transparente e focado em qualidade.
+            </h2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-4">
+            {[
+              {
+                icon: "🧼",
+                title: "Cuidado real",
+                text: "Cada equipamento é tratado com atenção e respeito.",
+              },
+              {
+                icon: "⚡",
+                title: "Performance",
+                text: "Foco em temperaturas, estabilidade e desempenho.",
+              },
+              {
+                icon: "🎮",
+                title: "Gaming & Tech",
+                text: "Projeto criado por paixão genuína pela tecnologia.",
+              },
+              {
+                icon: "💬",
+                title: "Transparência",
+                text: "Comunicação simples e orçamento explicado antes do serviço.",
+              },
+            ].map((item) => (
+              <motion.div
+                key={item.title}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.03] p-8 transition hover:border-blue-400/40"
+              >
+                <div className="mb-5 text-5xl">
+                  {item.icon}
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        <section id="loja" style={{ padding: "70px 0", borderTop: "1px solid rgba(255,255,255,0.10)" }}>
-          <div style={container}>
-            <p style={{ color: "#60a5fa", fontWeight: 800, letterSpacing: 2, textTransform: "uppercase" }}>Loja / PCs EBasto Tech</p>
-            <h2 style={title}>PCs acessíveis, bem montados e otimizados.</h2>
-            <p style={{ ...subtitle, marginBottom: 34 }}>Ideia futura: montar PCs com bom custo/benefício para quem quer jogar, trabalhar ou estudar sem gastar valores absurdos.</p>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 22 }}>
-              {shopBuilds.map((build) => (
-                <div className="lift" key={build[0]} style={card}>
-                  <div style={{ display: "inline-block", color: "#bfdbfe", border: "1px solid rgba(96,165,250,0.25)", background: "rgba(59,130,246,0.12)", borderRadius: 999, padding: "6px 12px", marginBottom: 16, fontSize: 13, fontWeight: 800 }}>{build[2]}</div>
-                  <h3 style={{ color: "white", margin: "0 0 10px", fontSize: 26 }}>{build[0]}</h3>
-                  <div style={{ color: "#60a5fa", fontSize: 30, fontWeight: 900, marginBottom: 14 }}>{build[1]}</div>
-                  <p style={{ color: "#f8fafc", lineHeight: 1.55, margin: 0 }}>{build[3]}</p>
-                </div>
-              ))}
-            </div>
-            <div style={{ ...card, color: "#f8fafc", marginTop: 24, borderColor: "rgba(96,165,250,0.25)", background: "rgba(59,130,246,0.10)" }}>
-              <strong style={{ color: "white" }}>Nota:</strong> Esta secção pode começar como conceito/portfolio e evoluir quando houver stock, peças e número profissional.
-            </div>
-          </div>
-        </section>
+                <h3 className="text-2xl font-black text-white">
+                  {item.title}
+                </h3>
 
-        <section id="precos" style={{ padding: "70px 0", borderTop: "1px solid rgba(255,255,255,0.10)" }}>
-          <div style={container}>
-            <div style={{ textAlign: "center", marginBottom: 38 }}>
-              <p style={{ color: "#60a5fa", fontWeight: 800, letterSpacing: 2, textTransform: "uppercase" }}>O que define a EBasto Tech</p>
-              <h2 style={title}>Simples, transparente e focado em qualidade.</h2>
-            </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 20 }}>
-              {values.map((value) => (
-                <div className="lift" key={value[1]} style={card}>
-                  <div style={{ fontSize: 40, marginBottom: 14 }}>{value[0]}</div>
-                  <h3 style={{ color: "white", margin: "0 0 10px", fontSize: 22 }}>{value[1]}</h3>
-                  <p style={{ color: "#f8fafc", lineHeight: 1.55, margin: 0 }}>{value[2]}</p>
-                </div>
-              ))}
-            </div>
+                <p className="mt-3 leading-relaxed text-slate-400">
+                  {item.text}
+                </p>
+              </motion.div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section style={{ padding: "70px 0", borderTop: "1px solid rgba(255,255,255,0.10)" }}>
-          <div style={container}>
-            <p style={{ color: "#60a5fa", fontWeight: 800, letterSpacing: 2, textTransform: "uppercase" }}>Perguntas rápidas</p>
-            <h2 style={title}>Informação simples antes de contactar.</h2>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20, marginTop: 34 }}>
-              {faq.map((item) => (
-                <div className="lift" key={item[0]} style={card}>
-                  <h3 style={{ color: "white", margin: "0 0 12px", fontSize: 22 }}>{item[0]}</h3>
-                  <p style={{ color: "#f8fafc", lineHeight: 1.55, margin: 0 }}>{item[1]}</p>
-                </div>
-              ))}
-            </div>
+      <section className="border-t border-white/10 px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 max-w-3xl">
+            <p className="font-bold uppercase tracking-widest text-blue-400">Perguntas rápidas</p>
+            <h2 className="mt-3 text-4xl font-black md:text-5xl">Informação simples antes de pedir orçamento.</h2>
+            <p className="mt-4 text-lg text-slate-400">
+              Pequenos detalhes para o cliente perceber logo como funciona o serviço.
+            </p>
           </div>
-        </section>
 
-        <section id="contactos" style={{ padding: "70px 0", borderTop: "1px solid rgba(255,255,255,0.10)" }}>
-          <div style={container}>
-            <div style={{ ...card, background: "linear-gradient(135deg, rgba(59,130,246,0.18), rgba(3,7,18,0.95))", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 30, alignItems: "center" }}>
+          <div className="grid gap-6 md:grid-cols-2">
+            {[
+              {
+                q: "Quanto custa uma limpeza completa?",
+                a: "A limpeza completa tem um valor base de 35€, já com limpeza interna e verificação geral.",
+              },
+              {
+                q: "Fazes formatações?",
+                a: "Sim. Formatação e otimização para deixar o sistema mais limpo, rápido e estável.",
+              },
+              {
+                q: "Trabalhas com portáteis?",
+                a: "Sim, mediante análise. Cada portátil pode ter acessos e desmontagem diferentes.",
+              },
+              {
+                q: "Onde estás localizado?",
+                a: "Mondim de Basto. Para já, o contacto é feito por mensagem privada ou email.",
+              },
+              {
+                q: "Quanto tempo demora o serviço?",
+                a: "Depende do estado do equipamento, mas tento sempre ser claro no tempo previsto antes de avançar.",
+              },
+              {
+                q: "Tenho de levar o PC?",
+                a: "Para já sim, o serviço é combinado por mensagem e tratado em Mondim de Basto.",
+              },
+              {
+                q: "Fazes diagnóstico?",
+                a: "Posso fazer uma análise básica e indicar o que parece fazer sentido antes de qualquer serviço.",
+              },
+            ].map((item) => (
+              <motion.div
+                key={item.q}
+                whileHover={{ y: -4 }}
+                className="rounded-3xl border border-white/10 bg-white/[0.04] p-7 transition hover:border-blue-400/40 hover:bg-blue-500/10"
+              >
+                <h3 className="text-xl font-black text-white">{item.q}</h3>
+                <p className="mt-3 leading-relaxed text-slate-400">{item.a}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-white/10 px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <motion.div
+            whileHover={{ scale: 1.01 }}
+            className="relative overflow-hidden rounded-[2rem] border border-blue-400/20 bg-gradient-to-br from-blue-500/15 via-slate-950 to-[#030712] p-10 shadow-2xl shadow-blue-950/30"
+          >
+            <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" />
+            <div className="absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
+
+            <div className="relative z-10 grid items-center gap-10 lg:grid-cols-2">
               <div>
-                <p style={{ color: "#bfdbfe", fontWeight: 800, letterSpacing: 2, textTransform: "uppercase" }}>Pronto para melhorar o teu setup?</p>
-                <h2 style={title}>Dá uma nova vida ao teu PC.</h2>
-                <p style={subtitle}>Limpeza, otimização e manutenção com foco em performance, temperaturas e cuidado real pelo equipamento.</p>
+                <p className="font-bold uppercase tracking-widest text-blue-300">
+                  Pronto para melhorar o teu setup?
+                </p>
+
+                <h2 className="mt-4 text-4xl font-black leading-tight md:text-5xl">
+                  Dá uma nova vida ao teu PC.
+                </h2>
+
+                <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-300">
+                  Limpeza, otimização e manutenção com foco em performance, temperaturas e cuidado real pelo equipamento.
+                </p>
               </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: 14, alignItems: "flex-start" }}>
-                <img src={fullLogoImage} alt="EBasto Tech" style={{ width: "min(320px, 100%)", filter: "drop-shadow(0 0 22px rgba(59,130,246,0.35))" }} />
-                <a href="mailto:ebastotech@gmail.com" style={blueButton}>Vamos melhorar o teu setup</a>
-                <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                  <a href="https://www.instagram.com/ebastotech/" style={{ color: "#e2e8f0", textDecoration: "none", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 14, padding: "10px 14px" }}>📸 Instagram</a>
-                  <a href="https://www.facebook.com/profile.php?id=61589279948684&locale=pt_PT" style={{ color: "#e2e8f0", textDecoration: "none", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 14, padding: "10px 14px" }}>📘 Facebook</a>
-                  <a href="mailto:ebastotech@gmail.com" style={{ color: "#e2e8f0", textDecoration: "none", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 14, padding: "10px 14px" }}>📧 Email</a>
+
+              <div className="flex flex-col gap-4 lg:items-end">
+                <div className="mb-2">
+                  <img
+                    src="https://i.imgur.com/okzWK8Q.png"
+                    alt="EBasto Tech"
+                    className="h-20 w-auto drop-shadow-[0_0_25px_rgba(59,130,246,0.35)]"
+                  />
+                </div>
+
+                <a
+                  href="mailto:ebastotech@gmail.com"
+                  className="w-full rounded-2xl bg-blue-500 px-8 py-4 text-center text-lg font-black shadow-lg shadow-blue-500/30 transition hover:bg-blue-400 lg:w-auto"
+                >
+                  Vamos melhorar o teu setup
+                </a>
+
+                <div className="flex w-full flex-col gap-3 sm:flex-row lg:w-auto">
+                  <a
+                    href="https://www.instagram.com/ebastotech/"
+                    className="rounded-2xl border border-white/10 bg-white/5 px-6 py-3 text-center text-sm font-bold transition hover:border-pink-400/40 hover:bg-pink-500/10"
+                  >
+                    📸 Instagram
+                  </a>
+
+                  <a
+                    href="https://www.facebook.com/profile.php?id=61589279948684&locale=pt_PT"
+                    className="rounded-2xl border border-white/10 bg-white/5 px-6 py-3 text-center text-sm font-bold transition hover:border-blue-400/40 hover:bg-blue-500/10"
+                  >
+                    📘 Facebook
+                  </a>
+
+                  <a
+                    href="mailto:ebastotech@gmail.com"
+                    className="rounded-2xl border border-white/10 bg-white/5 px-6 py-3 text-center text-sm font-bold transition hover:border-cyan-400/40 hover:bg-cyan-500/10"
+                  >
+                    📧 Email
+                  </a>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-      </main>
+          </motion.div>
+        </div>
+      </section>
 
-      <footer style={{ borderTop: "1px solid rgba(255,255,255,0.10)", padding: "34px 0", position: "relative", zIndex: 1 }}>
-        <div style={{ ...container, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 18, flexWrap: "wrap" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <img src={logoImage} alt="EBasto Tech" style={{ height: 48 }} />
-            <div>
-              <strong style={{ color: "white" }}>EBasto <span style={{ color: "#60a5fa" }}>Tech</span></strong>
-              <p style={{ color: "#cbd5e1", margin: "4px 0 0" }}>Confiança, desempenho e cuidado.</p>
+      <section id="contactos" className="border-y border-white/10 bg-slate-950/70 px-6 py-24">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+          <div>
+            <p className="font-bold uppercase tracking-widest text-blue-400">Sobre</p>
+            <h2 className="mt-3 text-4xl font-black md:text-5xl">Projeto criado com paixão por tecnologia.</h2>
+            <p className="mt-6 text-lg leading-relaxed text-slate-300">
+              A EBasto Tech nasceu para ajudar quem quer um PC mais limpo, mais estável e com melhor desempenho. Trabalho feito com atenção ao detalhe, comunicação simples e respeito pelo equipamento de cada cliente.
+            </p>
+          </div>
+
+          <div className="rounded-3xl border border-blue-400/20 bg-blue-500/10 p-8">
+            <h3 className="mb-5 text-2xl font-black">Contactos</h3>
+            <div className="space-y-4 text-slate-200">
+              <p className="flex items-center gap-3">📧 ebastotech@gmail.com</p>
+              <p className="flex items-center gap-3">📍 Mondim de Basto</p>
+              <p className="flex items-center gap-3">💬 Contacto por mensagem privada</p>
             </div>
           </div>
-          <div style={{ display: "flex", gap: 16, color: "#e2e8f0", flexWrap: "wrap" }}>
-            <a href="https://www.instagram.com/ebastotech/" style={{ color: "inherit", textDecoration: "none" }}>Instagram</a>
-            <a href="https://www.facebook.com/profile.php?id=61589279948684&locale=pt_PT" style={{ color: "inherit", textDecoration: "none" }}>Facebook</a>
-            <a href="mailto:ebastotech@gmail.com" style={{ color: "inherit", textDecoration: "none" }}>Email</a>
+        </div>
+      </section>
+
+      <a
+        href="mailto:ebastotech@gmail.com"
+        className="fixed bottom-5 right-5 z-40 rounded-full bg-blue-500 px-5 py-4 text-sm font-black text-white shadow-2xl shadow-blue-500/30 transition hover:bg-blue-400"
+      >
+        📩 Orçamento
+      </a>
+
+      <footer className="border-t border-white/10 px-6 py-10">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left">
+          <div className="flex items-center gap-4">
+            <img
+              src={logoImage}
+              alt="EBasto Tech"
+              className="h-12 w-auto mix-blend-screen opacity-90"
+            />
+
+            <div>
+              <p className="text-lg font-black text-white">
+                EBasto <span className="text-blue-400">Tech</span>
+              </p>
+              <p className="text-sm text-slate-500">
+                Confiança, desempenho e cuidado 💙.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 text-sm text-slate-400">
+            <a href="https://www.instagram.com/ebastotech/" className="transition hover:text-pink-400">
+              Instagram
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61589279948684&locale=pt_PT" className="transition hover:text-blue-400">
+              Facebook
+            </a>
+            <a href="mailto:ebastotech@gmail.com" className="transition hover:text-cyan-400">
+              Email
+            </a>
           </div>
         </div>
       </footer>
-    </div>
+    </main>
   );
 }
