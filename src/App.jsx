@@ -136,49 +136,49 @@ export default function EBastoTechSite() {
         </div>
       </motion.nav>
 
-      <section className="relative flex min-h-screen items-start pt-20 sm:items-center">
+      <section className="relative flex min-h-screen items-start pt-16 sm:items-center sm:pt-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_20%,rgba(37,99,235,0.35),transparent_35%),radial-gradient(circle_at_20%_40%,rgba(14,165,233,0.18),transparent_30%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0ea5e9_1px,transparent_1px),linear-gradient(to_bottom,#0ea5e9_1px,transparent_1px)] bg-[size:64px_64px] opacity-20" />
 
-        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-6 px-4 py-8 sm:gap-10 sm:px-6 sm:py-16 lg:grid-cols-2 lg:py-20">
+        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-7 px-4 py-8 sm:gap-10 sm:px-6 sm:py-16 lg:grid-cols-2 lg:py-20">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-3 py-1.5 text-xs text-blue-200 sm:mb-6 sm:px-4 sm:py-2 sm:text-sm">
               <span className="h-2 w-2 animate-pulse rounded-full bg-blue-400" />
               Mondim de Basto
             </div>
 
-            <div className="mb-4 flex items-center gap-3 sm:gap-5">
+            <div className="mb-4 flex items-center justify-center gap-3 text-center sm:justify-start sm:text-left sm:gap-5">
               <img
                 src={logoImage}
                 alt="EBasto Tech Logo"
-                className="h-10 w-auto shrink-0 mix-blend-screen drop-shadow-[0_0_25px_rgba(59,130,246,0.45)] sm:h-20 md:h-24"
+                className="h-11 w-auto shrink-0 mix-blend-screen drop-shadow-[0_0_25px_rgba(59,130,246,0.45)] sm:h-20 md:h-24"
               />
 
-              <h1 className="text-2xl font-black leading-tight tracking-tight min-[390px]:text-3xl sm:text-5xl md:text-6xl">
+              <h1 className="text-3xl font-black leading-tight tracking-tight min-[390px]:text-4xl sm:text-5xl md:text-6xl">
                 EBasto <span className="text-blue-400">Tech</span>
               </h1>
             </div>
 
-            <p className="mt-3 max-w-[20rem] text-xs leading-relaxed text-slate-300 min-[390px]:text-sm sm:mt-6 sm:max-w-xl sm:text-xl md:text-2xl">
+            <p className="mx-auto mt-3 max-w-[21rem] text-center text-sm leading-relaxed text-slate-300 min-[390px]:text-base sm:mx-0 sm:mt-6 sm:max-w-xl sm:text-left sm:text-xl md:text-2xl">
               Limpeza, manutenção e otimização de PCs com cuidado, confiança e desempenho.
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-3 sm:mt-8">
-              <a className="rounded-2xl bg-blue-500 px-4 py-2.5 text-sm font-bold shadow-lg shadow-blue-500/25 transition hover:bg-blue-400 sm:px-6 sm:py-3 sm:text-base lg:px-8 lg:py-4 lg:text-lg" href="mailto:ebastotech@gmail.com">
+            <div className="mt-6 grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 sm:mt-8 sm:flex sm:flex-wrap">
+              <a className="rounded-2xl bg-blue-500 px-4 py-3 text-center text-sm font-bold shadow-lg shadow-blue-500/25 transition hover:bg-blue-400 sm:px-6 sm:py-3 sm:text-base lg:px-8 lg:py-4 lg:text-lg" href="mailto:ebastotech@gmail.com">
                 Vamos melhorar o teu setup
               </a>
-              <a className="rounded-2xl border border-white/15 px-4 py-2.5 text-sm font-bold transition hover:bg-white/10 sm:px-6 sm:py-3 sm:text-base lg:px-8 lg:py-4 lg:text-lg" href="#servicos">
+              <a className="rounded-2xl border border-white/15 px-4 py-3 text-center text-sm font-bold transition hover:bg-white/10 sm:px-6 sm:py-3 sm:text-base lg:px-8 lg:py-4 lg:text-lg" href="#servicos">
                 Ver serviços
               </a>
             </div>
 
-            <div className="mt-5 grid grid-cols-1 gap-2 min-[390px]:grid-cols-2 sm:mt-8 sm:flex sm:flex-wrap sm:gap-4 lg:gap-5">
+            <div className="mt-5 grid grid-cols-2 gap-2 sm:mt-8 sm:flex sm:flex-wrap sm:gap-4 lg:gap-5">
               {socials.map((social) => (
                 <motion.a
                   whileHover={{ scale: 1.05, y: -2 }}
                   key={social.name}
                   href={social.url}
-                  className="flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-slate-200 transition hover:border-blue-400/40 hover:bg-blue-500/10 sm:px-5 sm:py-3 sm:text-sm lg:px-6 lg:py-3.5"
+                  className="flex min-h-[44px] items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-center text-xs font-semibold text-slate-200 transition hover:border-blue-400/40 hover:bg-blue-500/10 sm:px-5 sm:py-3 sm:text-sm lg:px-6 lg:py-3.5"
                 >
                   <span className="text-lg">{social.icon}</span>
                   {social.name}
@@ -186,9 +186,9 @@ export default function EBastoTechSite() {
               ))}
             </div>
 
-            <div className="mt-10 grid max-w-xl gap-3 sm:grid-cols-3">
+            <div className="mx-auto mt-5 grid max-w-sm grid-cols-3 gap-2 sm:mx-0 sm:mt-10 sm:max-w-xl sm:gap-3 sm:grid-cols-3">
               {values.map((item) => (
-                <div key={item.label} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 text-slate-200">
+                <div key={item.label} className="flex min-h-[72px] flex-col items-center justify-center gap-1 rounded-2xl border border-white/10 bg-white/5 p-3 text-center text-xs text-slate-200 sm:min-h-0 sm:flex-row sm:justify-start sm:gap-3 sm:p-4 sm:text-left sm:text-base">
                   <span className="text-xl">{item.icon}</span>
                   {item.label}
                 </div>
@@ -199,13 +199,13 @@ export default function EBastoTechSite() {
           <motion.div initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.15 }} className="relative">
             <div className="absolute -inset-6 rounded-[2rem] bg-blue-500/20 blur-3xl" />
 
-            <div className="relative rounded-[2rem] border border-blue-300/20 bg-slate-950/80 p-3 shadow-2xl shadow-blue-950/40 sm:p-6">
-              <div className="relative flex aspect-[16/10] items-end overflow-hidden rounded-3xl border border-white/10 bg-black min-[390px]:aspect-[4/3] sm:aspect-video">
+            <div className="relative rounded-[1.5rem] border border-blue-300/20 bg-slate-950/80 p-3 shadow-2xl shadow-blue-950/40 sm:rounded-[2rem] sm:p-6">
+              <div className="relative flex aspect-[16/11] items-end overflow-hidden rounded-2xl border border-white/10 bg-black min-[420px]:aspect-[4/3] sm:aspect-video sm:rounded-3xl">
                 <img src={setupImage} alt="Setup pessoal EBasto Tech" className="absolute inset-0 h-full w-full object-cover opacity-80" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-blue-950/20" />
 
-                <div className="relative z-10 flex h-full flex-col justify-end p-4 sm:p-6">
-                  <div className="mb-3 inline-flex w-fit items-center gap-2 rounded-full border border-blue-400/20 bg-black/30 px-3 py-1 text-xs text-blue-200 backdrop-blur-md">
+                <div className="relative z-10 flex h-full flex-col justify-end p-3 sm:p-6">
+                  <div className="mb-2 inline-flex w-fit max-w-full items-center gap-2 rounded-full border border-blue-400/20 bg-black/30 px-2.5 py-1 text-[10px] text-blue-200 backdrop-blur-md sm:mb-3 sm:px-3 sm:text-xs">
                     <span>💙 Setup pessoal da EBasto Tech</span>
                     <img
                       src={logoImage}
@@ -214,7 +214,7 @@ export default function EBastoTechSite() {
                     />
                   </div>
 
-                  <h3 className="text-base font-black tracking-wide min-[390px]:text-xl sm:text-3xl">PERFORMANCE • QUALIDADE</h3>
+                  <h3 className="text-sm font-black tracking-wide min-[420px]:text-lg sm:text-3xl">PERFORMANCE • QUALIDADE</h3>
                 </div>
               </div>
             </div>
