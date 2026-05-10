@@ -186,9 +186,9 @@ export default function EBastoTechSite() {
               ))}
             </div>
 
-            <div className="mt-5 grid max-w-xl grid-cols-1 gap-2 min-[390px]:grid-cols-3 sm:mt-10 sm:gap-3 lg:max-w-2xl lg:gap-4">
+            <div className="mt-10 grid max-w-xl gap-3 sm:grid-cols-3">
               {values.map((item) => (
-                <div key={item.label} className="flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 p-3 text-center text-xs text-slate-200 sm:justify-start sm:gap-3 sm:p-4 sm:text-left sm:text-base lg:min-h-[84px] lg:justify-center lg:text-lg">
+                <div key={item.label} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 text-slate-200">
                   <span className="text-xl">{item.icon}</span>
                   {item.label}
                 </div>
