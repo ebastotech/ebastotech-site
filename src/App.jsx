@@ -164,21 +164,21 @@ export default function EBastoTechSite() {
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3 sm:mt-8">
-              <a className="rounded-2xl bg-blue-500 px-4 py-2.5 text-sm font-bold shadow-lg shadow-blue-500/25 transition hover:bg-blue-400 sm:px-6 sm:py-3 sm:text-base" href="mailto:ebastotech@gmail.com">
+              <a className="rounded-2xl bg-blue-500 px-4 py-2.5 text-sm font-bold shadow-lg shadow-blue-500/25 transition hover:bg-blue-400 sm:px-6 sm:py-3 sm:text-base lg:px-8 lg:py-4 lg:text-lg" href="mailto:ebastotech@gmail.com">
                 Vamos melhorar o teu setup
               </a>
-              <a className="rounded-2xl border border-white/15 px-4 py-2.5 text-sm font-bold transition hover:bg-white/10 sm:px-6 sm:py-3 sm:text-base" href="#servicos">
+              <a className="rounded-2xl border border-white/15 px-4 py-2.5 text-sm font-bold transition hover:bg-white/10 sm:px-6 sm:py-3 sm:text-base lg:px-8 lg:py-4 lg:text-lg" href="#servicos">
                 Ver serviços
               </a>
             </div>
 
-            <div className="mt-5 grid grid-cols-1 gap-2 min-[390px]:grid-cols-2 sm:mt-8 sm:flex sm:flex-wrap sm:gap-4">
+            <div className="mt-5 grid grid-cols-1 gap-2 min-[390px]:grid-cols-2 sm:mt-8 sm:flex sm:flex-wrap sm:gap-4 lg:gap-5">
               {socials.map((social) => (
                 <motion.a
                   whileHover={{ scale: 1.05, y: -2 }}
                   key={social.name}
                   href={social.url}
-                  className="flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-slate-200 transition hover:border-blue-400/40 hover:bg-blue-500/10 sm:px-5 sm:py-3 sm:text-sm"
+                  className="flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-slate-200 transition hover:border-blue-400/40 hover:bg-blue-500/10 sm:px-5 sm:py-3 sm:text-sm lg:px-6 lg:py-3.5"
                 >
                   <span className="text-lg">{social.icon}</span>
                   {social.name}
@@ -186,9 +186,9 @@ export default function EBastoTechSite() {
               ))}
             </div>
 
-            <div className="mt-5 grid max-w-xl grid-cols-1 gap-2 min-[390px]:grid-cols-3 sm:mt-10 sm:gap-3">
+            <div className="mt-5 grid max-w-xl grid-cols-1 gap-2 min-[390px]:grid-cols-3 sm:mt-10 sm:gap-3 lg:max-w-2xl lg:gap-4">
               {values.map((item) => (
-                <div key={item.label} className="flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 p-3 text-center text-xs text-slate-200 sm:justify-start sm:gap-3 sm:p-4 sm:text-left sm:text-base">
+                <div key={item.label} className="flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 p-3 text-center text-xs text-slate-200 sm:justify-start sm:gap-3 sm:p-4 sm:text-left sm:text-base lg:min-h-[84px] lg:justify-center lg:text-lg">
                   <span className="text-xl">{item.icon}</span>
                   {item.label}
                 </div>
