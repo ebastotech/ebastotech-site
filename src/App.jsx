@@ -140,26 +140,26 @@ export default function EBastoTechSite() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_20%,rgba(37,99,235,0.35),transparent_35%),radial-gradient(circle_at_20%_40%,rgba(14,165,233,0.18),transparent_30%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0ea5e9_1px,transparent_1px),linear-gradient(to_bottom,#0ea5e9_1px,transparent_1px)] bg-[size:64px_64px] opacity-20" />
 
-        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-2">
+        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-5 py-16 sm:px-6 sm:py-20 lg:grid-cols-2">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-sm text-blue-200">
               <span className="h-2 w-2 animate-pulse rounded-full bg-blue-400" />
               Mondim de Basto
             </div>
 
-            <div className="mb-6 flex items-center gap-5">
+            <div className="mb-4 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-5">
               <img
                 src={logoImage}
                 alt="EBasto Tech Logo"
-                className="h-24 w-auto mix-blend-screen drop-shadow-[0_0_25px_rgba(59,130,246,0.45)]"
+                className="h-16 w-auto mix-blend-screen drop-shadow-[0_0_25px_rgba(59,130,246,0.45)] sm:h-20 md:h-24"
               />
 
-              <h1 className="text-5xl font-black leading-none tracking-tight md:text-6xl">
+              <h1 className="text-4xl font-black leading-tight tracking-tight sm:text-5xl md:text-6xl">
                 EBasto <span className="text-blue-400">Tech</span>
               </h1>
             </div>
 
-            <p className="mt-6 max-w-xl text-2xl text-slate-300">
+            <p className="mt-5 max-w-lg text-base leading-relaxed text-slate-300 sm:text-xl md:text-2xl">
               Limpeza, manutenção e otimização de PCs com cuidado, confiança e desempenho.
             </p>
 
